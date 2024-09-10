@@ -1,10 +1,10 @@
 // Definir las tasas de cambio para compra y venta
 // Definir los precios de venta
 const precios = {
-    producto1: 1.02, //BUY USDT - USD
-    producto2: 3.8,    //BUY USDT - PEN
+    producto1: 1.005, //BUY USDT - USD
+    producto2: 3.82,    //BUY USDT - PEN
     producto3: 0.99,    //SELL USDT - USD
-    producto4: 3.7,     //SELL USDT - PEN
+    producto4: 3.78,     //SELL USDT - PEN
 };
 
 
