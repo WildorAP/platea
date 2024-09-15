@@ -1,12 +1,12 @@
 /* Hacer que el body ocupe toda la altura de la pantalla */
-html,
 body {
     height: 100%;
-    margin: 0;
+    margin-top: 0;
     font-family: 'Monstserrat', sans-serif;
     /* Ejemplo de Roboto como tipografía */
     display: flex;
     flex-direction: column;
+    
     background-image: url('./IMAGENES/3626052.jpg');
     /* Reemplaza con la ruta de tu imagen */
     background-size: cover;
@@ -53,24 +53,25 @@ header {
 }
 
 #home {
-    font-size: 2rem;
-    height: 60vh;
-    margin-top: 60px;
     display: flex;
+    padding-top: 5%;
+    padding-left: 7%;
+    padding-right: 7%;
+    
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+
+    font-size: 2rem;
+    min-height: 70vh;
+    gap: 40vh;
+    
+    
 
 
 }
 
 /* Calculadora*/
-.calculadora {
-    
-   
-    
-    padding-right: 10%;
-    padding-top: 4%;
-    height: 100vh;
-    margin: 0;
-}
+
 
 .calculadora p{
     font-size: 0.8rem;
@@ -83,7 +84,7 @@ header {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 40vh;
 }
 
 
@@ -148,9 +149,7 @@ button:hover {
 }
 /* Fin de Calculadora*/
 
-#contact {
-    margin-top: 94px;
-}
+
 
 
 .process-gallery {
@@ -192,20 +191,6 @@ button:hover {
 .process-item p {
     font-size: 1rem;
     color: white;
-}
-
-/* Para pantallas pequeñas, cambia a diseño en una columna */
-@media (max-width: 768px) {
-    .process-gallery {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .process-item {
-        flex-basis: 100%;
-        /* Ocupa todo el ancho en pantallas pequeñas */
-        margin-bottom: 20px;
-    }
 }
 
 /* Estilos para el footer */
@@ -266,14 +251,13 @@ nav ul li a {
 }
 
 .socios {
-    width: 40%;
-    margin-top: 100px;
-    padding-left: 20%;
+    
     display: flex;
-    justify-content: space-between;
-
+    justify-content: center;
+    gap: 70px;
     text-align: center;
-    flex-basis: 50%;
+    margin-top: 20%;
+    
 }
 
 .socios p {
@@ -282,9 +266,72 @@ nav ul li a {
 
 }
 .servicio {
-    padding-left: 15%;
-    width: 50%;
     text-align: center;
-    margin-top: 15%;
     
 }
+/* Para pantallas pequeñas, cambia a diseño en una columna */
+@media (max-width: 768px) {
+    
+
+    .process-gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .process-item {
+        flex-basis: 100%;
+        /* Ocupa todo el ancho en pantallas pequeñas */
+        margin-bottom: 20px;
+    }
+    
+    #home {
+        flex-direction: column;
+        align-items: center;
+         justify-content: center;
+        min-height: 100vh; /* Asegura que ocupe toda la pantalla */
+        margin-top: 15vh;
+        gap:10vh;
+    }
+   
+    
+    .calculadora {
+        flex-basis: auto;
+        /* Ocupa todo el ancho en pantallas pequeñas */
+        margin-bottom: 20px;
+    }
+
+}
+
+@media (min-width: 768.1px) and (max-width: 1399.98px){
+    
+
+    .process-gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .process-item {
+        flex-basis: 100%;
+        /* Ocupa todo el ancho en pantallas pequeñas */
+        margin-bottom: 20px;
+    }
+    
+    #home {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh; /* Asegura que ocupe toda la pantalla */
+        margin-top: 15vh;
+        gap:10vh;
+    }
+   
+    
+    .calculadora {
+        flex-basis: auto;
+        /* Ocupa todo el ancho en pantallas pequeñas */
+        margin-bottom: 20px;
+    }
+
+}
+
+
