@@ -283,6 +283,21 @@ nav ul li a {
         /* Ocupa todo el ancho en pantallas pequeñas */
         margin-bottom: 20px;
     }
+
+    body {
+        height: 100%;
+        margin-top: 0;
+        font-family: 'Monstserrat', sans-serif;
+        /* Ejemplo de Roboto como tipografía */
+        display: flex;
+        flex-direction: column;
+        
+        
+        background-color: rgba(0, 0, 0, 0);
+        /* Añade una capa oscura */
+       
+    }
+    
     
     #home {
         flex-direction: column;
