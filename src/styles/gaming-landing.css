@@ -1,0 +1,255 @@
+/* ==========================================================================
+   GAMING LANDING — estilos de la sección "Gamer & Metaverso"
+   ==========================================================================
+   Todo lo nuevo va prefijado (gh- = "gaming hub", svc- = "service header")
+   para no heredar ni pisar la especificidad del CSS legacy (style.css).
+   No se modifica ni se reutiliza ninguna clase existente.
+   ========================================================================== */
+
+:root {
+    --gh-color-bg: rgba(10, 8, 20, 0.55);       /* overlay sobre el fondo ya existente */
+    --gh-color-accent: #7C5CFF;                  /* violeta — identidad de esta sección */
+    --gh-color-accent-soft: #7C5CFF33;           /* mismo violeta, para bordes/halos sutiles */
+    --gh-color-live: #B8F23C;                    /* verde-lima — solo para estados "activo/saldo" */
+    --gh-color-text: #FFFFFF;
+    --gh-color-text-muted: #C9C4E0;
+
+    --gh-font-display: 'Roboto', sans-serif;     /* misma familia del sitio, distinto peso/tracking */
+    --gh-radius: 14px;
+}
+
+/* --------------------------------------------------------------------------
+   2. ENCABEZADO DE SECCIÓN (svc-*)
+   Reutilizable: lo usará también #cambio-cripto más adelante, así ambas
+   secciones-pilar comparten el mismo patrón visual (badge + título + texto).
+   -------------------------------------------------------------------------- */
+.svc-header {
+    max-width: 640px;
+}
+
+.svc-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: var(--gh-color-accent-soft);
+    border: 1px solid var(--gh-color-accent);
+    color: var(--gh-color-text);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.svc-title {
+    margin: 18px 0 10px;
+    font-family: var(--gh-font-display);
+    font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--gh-color-text);
+}
+
+.svc-description {
+    font-size: 1.05rem;
+    color: var(--gh-color-text-muted);
+    line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   3. SECCIÓN GAMING (gh-*)
+   Layout asimétrico: encabezado a la izquierda, lista de mundos a la
+   derecha. En mobile colapsa a una sola columna.
+   -------------------------------------------------------------------------- */
+.gh-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 60px;
+    padding: 60px 7%;
+    background: var(--gh-color-bg);
+    border-radius: var(--gh-radius);
+}
+
+.gh-section .gh-intro {
+    flex: 0 0 40%;
+}
+
+/* Franja de "estado en vivo" — punto pulsante en verde-lima, el único
+   uso de --gh-color-live en toda la sección. */
+.gh-stats {
+    list-style: none;
+    margin: 24px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.gh-stats__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: var(--gh-color-text-muted);
+}
+
+.gh-stats__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gh-color-live);
+    box-shadow: 0 0 0 0 var(--gh-color-live);
+    animation: gh-dot-pulse 2s ease-out infinite;
+    flex-shrink: 0;
+}
+
+@keyframes gh-dot-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(184, 242, 60, 0.5); }
+    70% { box-shadow: 0 0 0 6px rgba(184, 242, 60, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(184, 242, 60, 0); }
+}
+
+.gh-worlds {
+    flex: 1 1 60%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.gh-world {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 20px;
+    border-left: 2px solid var(--gh-color-accent-soft);
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+/* El destacado rompe la repetición: línea guía en verde-lima en vez de
+   violeta, y un halo sutil — no es solo "otra card igual". */
+.gh-world--destacado {
+    border-left-color: var(--gh-color-live);
+    background: linear-gradient(90deg, rgba(184, 242, 60, 0.06), transparent 60%);
+}
+
+.gh-world__tag {
+    position: absolute;
+    top: -10px;
+    left: 16px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: var(--gh-color-live);
+    color: #0a0814;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+}
+
+.gh-world__cta {
+    display: inline-block;
+    margin-top: 8px;
+    color: var(--gh-color-accent);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.15s ease;
+}
+
+.gh-world--destacado .gh-world__cta {
+    color: var(--gh-color-live);
+}
+
+.gh-world__cta:hover {
+    transform: translateX(3px);
+}
+
+/* Único hover con intención: la línea guía se enciende y el ítem se
+   desplaza levemente, no hay sombra ni escala genérica de "card". */
+.gh-world:hover,
+.gh-world:focus-within {
+    border-left-color: var(--gh-color-accent);
+    transform: translateX(4px);
+}
+
+.gh-world__icon {
+    flex: 0 0 auto;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gh-color-accent);
+}
+
+.gh-world__icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.gh-world__name {
+    margin: 0 0 4px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--gh-color-text);
+}
+
+.gh-world__tagline {
+    margin: 0;
+    font-size: 0.92rem;
+    color: var(--gh-color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   4. ENTRADA — un solo momento animado (el título), no efectos por card.
+   -------------------------------------------------------------------------- */
+@keyframes gh-title-reveal {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gh-section .svc-title {
+    animation: gh-title-reveal 0.5s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .gh-section .svc-title {
+        animation: none;
+    }
+    .gh-world {
+        transition: none;
+    }
+    .gh-stats__dot {
+        animation: none;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   5. RESPONSIVE — mismos puntos de quiebre que ya usa style.css, para que
+   toda la página cambie de layout de forma consistente.
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .gh-section {
+        flex-direction: column;
+        gap: 32px;
+        padding: 40px 6%;
+    }
+
+    .gh-section .gh-intro {
+        flex-basis: auto;
+    }
+}
+
+@media (min-width: 768.1px) and (max-width: 1399.98px) {
+    .gh-section {
+        gap: 40px;
+        padding: 50px 6%;
+    }
+}

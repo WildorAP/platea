@@ -1,0 +1,13 @@
+/* Reset mínimo global. La identidad visual completa (imagen de fondo,
+   overlay oscuro) vive en styles/layout.css junto al resto del chrome
+   del sitio (header/nav/footer). */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+}

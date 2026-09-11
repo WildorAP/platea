@@ -1,0 +1,102 @@
+/* ==========================================================================
+   LAYOUT — header, nav, footer, botón de WhatsApp y fondo global.
+   ==========================================================================
+   Clases con nombre propio (site-*, whatsapp-fab), no reutilizan
+   selectores de elemento "pelados" (header, nav ul li) como el CSS
+   legacy, para evitar el problema de especificidad ya diagnosticado.
+   ========================================================================== */
+
+body {
+    background-image: url('/images/3626052.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: rgba(0, 0, 0, 0.35);
+    background-blend-mode: darken;
+}
+
+.site-header {
+    position: fixed;
+    inset-inline: 0;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 50px;
+    background-color: rgba(6, 4, 14, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.site-header__logo img {
+    display: block;
+    width: 150px;
+    height: auto;
+}
+
+.site-nav ul {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.site-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.site-nav a:hover {
+    color: var(--gh-color-accent, #7C5CFF);
+}
+
+/* Espacio para que el contenido no quede tapado por el header fijo. */
+main {
+    padding-top: 90px;
+}
+
+.site-footer {
+    text-align: center;
+    padding: 16px;
+    background-color: rgba(0, 51, 102, 0.35);
+    color: #ffffff;
+    font-size: 0.8rem;
+}
+
+.whatsapp-fab {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    z-index: 1000;
+    line-height: 0;
+}
+
+.whatsapp-fab img {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.2s ease;
+}
+
+.whatsapp-fab:hover img {
+    transform: scale(1.15);
+}
+
+@media (max-width: 768px) {
+    .site-header {
+        padding: 10px 20px;
+    }
+
+    .site-nav ul {
+        gap: 20px;
+    }
+
+    .site-header__logo img {
+        width: 110px;
+    }
+}
