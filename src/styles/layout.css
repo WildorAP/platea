@@ -46,14 +46,39 @@ body {
 }
 
 .site-nav a {
+    display: block;
     color: #ffffff;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.95rem;
+    white-space: nowrap;
 }
 
 .site-nav a:hover {
     color: var(--gh-color-accent, #7C5CFF);
+}
+
+/* Botón hamburguesa — oculto en desktop, solo aparece en mobile
+   (ver media query). */
+.site-header__toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.site-header__toggle-bar {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #ffffff;
+    border-radius: 2px;
 }
 
 /* Espacio para que el contenido no quede tapado por el header fijo. */
@@ -92,11 +117,54 @@ main {
         padding: 10px 20px;
     }
 
-    .site-nav ul {
-        gap: 20px;
-    }
-
     .site-header__logo img {
         width: 110px;
+    }
+
+    main {
+        padding-top: 72px;
+    }
+
+    /* El hamburguesa se muestra, el link de texto se esconde detrás
+       de un panel desplegable. */
+    .site-header__toggle {
+        display: flex;
+    }
+
+    .site-nav {
+        position: fixed;
+        top: 62px;
+        left: 0;
+        right: 0;
+        max-height: 0;
+        overflow: hidden;
+        background-color: rgba(6, 4, 14, 0.97);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        transition: max-height 0.25s ease;
+    }
+
+    .site-nav--open {
+        max-height: 320px;
+    }
+
+    .site-nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 0;
+    }
+
+    .site-nav li {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .site-nav a {
+        padding: 14px 24px;
+    }
+
+    /* Espacio extra abajo para que el botón flotante de WhatsApp no
+       tape el texto legal del footer. */
+    .site-footer {
+        padding-bottom: 90px;
     }
 }
