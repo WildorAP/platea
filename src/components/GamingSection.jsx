@@ -6,7 +6,6 @@ import "../styles/gaming-landing.css";
 const LIVE_STATS = [
     "Activación en minutos",
     `+${GAMING_WORLDS.length} mundos disponibles`,
-    "Paga con USDT o PEN",
 ];
 
 /**

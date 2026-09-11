@@ -1,26 +1,23 @@
+import { WHATSAPP_URL } from "../config/contact.js";
 import "../styles/hero.css";
 
 /**
- * Portada del sitio. Es la primera sección bajo el header — presenta
- * ambos pilares del negocio (cambio de cripto + recarga gaming) y da
- * acceso directo a cada uno con un CTA, más una franja de confianza
- * (registro SBS-UIF, partner Binance) que ya existía como dato en el
- * negocio pero no se mostraba en ningún lado del sitio.
+ * Portada del sitio. El CTA único lleva directo a WhatsApp (no hace
+ * scroll a una sección): el titular presenta el servicio de cripto
+ * como mensaje principal, y "Cambiar" es la acción que arranca la
+ * conversación real con el equipo.
  */
 export default function Hero() {
     return (
         <section id="inicio" className="hero">
-            <p className="hero__eyebrow">Cripto y gaming, en un solo lugar</p>
             <h1 className="hero__title">
-                Cambia tus <span className="hero__title--accent">stablecoins</span> y recarga tu{" "}
-                <span className="hero__title--accent-alt">mundo gamer</span>
+                Servicio de tecnología para <span className="hero__title--accent">stablecoins</span>
             </h1>
             <p className="hero__subtitle">
-                Compra y vende USDT/USDC al instante, o recarga saldo en Sandbox, MOBOX, Roblox y más — todo desde Platea Hub.
+                Compra y vende USDT/USDC al instante, todo desde Platea Hub.
             </p>
             <div className="hero__actions">
-                <a className="hero__cta hero__cta--primary" href="#cambio-cripto">Cambiar cripto</a>
-                <a className="hero__cta hero__cta--secondary" href="#gaming">Recargar gaming</a>
+                <a className="hero__cta hero__cta--primary" href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">Cambiar</a>
             </div>
             <div className="hero__trust">
                 <span className="hero__trust-item">

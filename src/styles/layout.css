@@ -5,6 +5,17 @@
    selectores de elemento "pelados" (header, nav ul li) como el CSS
    legacy, para evitar el problema de especificidad ya diagnosticado.
    ========================================================================== */
+:root {
+    --header-offset: 90px;
+}
+
+/* El navegador alinea el ancla exacto con el borde superior de la
+   pantalla al saltar a un #id — sin esto, el header fijo tapa lo
+   primero del destino (por eso se veía cortado el badge "Más pedido"
+   al entrar a #gaming, y raro al volver a #inicio). */
+html {
+    scroll-padding-top: var(--header-offset);
+}
 
 body {
     background-image: url('/images/3626052.jpg');
@@ -83,15 +94,7 @@ body {
 
 /* Espacio para que el contenido no quede tapado por el header fijo. */
 main {
-    padding-top: 90px;
-}
-
-.site-footer {
-    text-align: center;
-    padding: 16px;
-    background-color: rgba(0, 51, 102, 0.35);
-    color: #ffffff;
-    font-size: 0.8rem;
+    padding-top: var(--header-offset);
 }
 
 .whatsapp-fab {
@@ -121,8 +124,12 @@ main {
         width: 110px;
     }
 
+    :root {
+        --header-offset: 72px;
+    }
+
     main {
-        padding-top: 72px;
+        padding-top: var(--header-offset);
     }
 
     /* El hamburguesa se muestra, el link de texto se esconde detrás
@@ -133,7 +140,7 @@ main {
 
     .site-nav {
         position: fixed;
-        top: 62px;
+        top: var(--header-offset);
         left: 0;
         right: 0;
         max-height: 0;
@@ -160,11 +167,5 @@ main {
 
     .site-nav a {
         padding: 14px 24px;
-    }
-
-    /* Espacio extra abajo para que el botón flotante de WhatsApp no
-       tape el texto legal del footer. */
-    .site-footer {
-        padding-bottom: 90px;
     }
 }

@@ -10,7 +10,7 @@ import { WHATSAPP_URL } from "../config/contact.js";
 const NAV_LINKS = [
     { href: "#inicio", label: "Inicio" },
     { href: "#gaming", label: "Gaming" },
-    { href: "#cambio-cripto", label: "Cambio cripto" },
+    { href: "#cambio-cripto", label: "Cambio" },
     { href: WHATSAPP_URL, label: "Contacto", external: true },
 ];
 

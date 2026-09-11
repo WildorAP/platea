@@ -4,7 +4,6 @@ import { EXCHANGE_RATES } from "../data/exchange-rates.js";
 import "../styles/crypto-exchange.css";
 
 const SECTION_META = {
-    badge: "Cambio de USDT",
     titulo: "Compra y venta de stablecoins",
     descripcion: "Cotización referencial al momento. USDT y USDC en Perú.",
 };
@@ -34,7 +33,6 @@ export default function CryptoExchangeSection() {
     return (
         <section id="cambio-cripto" className="cx-section">
             <SectionHeader
-                badge={SECTION_META.badge}
                 titulo={SECTION_META.titulo}
                 descripcion={SECTION_META.descripcion}
             />

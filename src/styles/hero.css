@@ -1,9 +1,9 @@
 /* ==========================================================================
    HERO — portada del sitio.
    ==========================================================================
-   Reusa los mismos acentos (violeta #7C5CFF / lima #B8F23C) definidos en
-   gaming-landing.css para que se sienta parte del mismo sistema, no una
-   sección aparte. Prefijo propio (hero-) para no chocar con nada.
+    Reusa el acento violeta (#7C5CFF) definido en gaming-landing.css para
+   que se sienta parte del mismo sistema, no una sección aparte.
+   Prefijo propio (hero-) para no chocar con nada.
    ========================================================================== */
 
 .hero {
@@ -11,15 +11,6 @@
     margin: 0 auto;
     padding: 40px 7% 60px;
     text-align: center;
-}
-
-.hero__eyebrow {
-    margin: 0 0 16px;
-    color: #C9C4E0;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-size: 0.8rem;
-    font-weight: 700;
 }
 
 .hero__title {
@@ -41,9 +32,6 @@
     color: transparent;
 }
 
-.hero__title--accent-alt {
-    color: #B8F23C;
-}
 
 .hero__subtitle {
     max-width: 620px;
@@ -73,12 +61,6 @@
 .hero__cta--primary {
     background: #7C5CFF;
     color: #ffffff;
-}
-
-.hero__cta--secondary {
-    background: transparent;
-    border: 1px solid #B8F23C;
-    color: #B8F23C;
 }
 
 .hero__cta:hover {
